@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dominion Hospital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/about_us.css">
+</head>
+<body>
+    <!-- Header Section with Mobile Menu -->
+    <header class="header">
+        <div class="header-logo">
+            <img src="Styles/Pictures/logo.png" alt="Dominion Hospital Logo">
+        </div>
+        
+      
+        <div class="nav-container" id="navContainer">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About_Us.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <button class="header-button" onclick="window.location.href='book_appointment.html'">Book an Appointment</button>
+        
+        <div class="overlay" id="menuOverlay"></div>
+          <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <h2>Dominion Hospital</h2>
+        <p>Committed to Providing Quality Healthcare to Our Patients</p>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section container">
+        <div class="about-text">
+            <h2>Our Story</h2>
+            <p>At Dominion Hospital, we are dedicated to providing exceptional healthcare services to our community. Our journey began with a vision to offer comprehensive medical care that is accessible, affordable, and tailored to meet the needs of every patient. Our experienced team of doctors, nurses, and healthcare professionals work tirelessly to ensure that every patient receives the best possible treatment in a caring and compassionate environment.</p>
+            <ul>
+                <li>Personalized patient care</li>
+                <li>Modern medical facilities</li>
+                <li>Expert team of specialists</li>
+                <li>24/7 emergency services</li>
+            </ul>
+        </div>
+        <div class="about-image">
+            <img src="Pictures/Picture1 (3).jpeg" alt="Dominion Hospital">
+        </div>
+    </section>
+    
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide world-class medical services with a focus on patient care, innovation, and excellence. We believe in empowering our patients with the knowledge and care they need to lead healthier lives. By combining advanced technology and a patient-first approach, we aim to set the standard for quality healthcare.</p>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="team-section container">
+        <h2>Meet Our Team</h2>
+        <div class="team-cards">
+            <div class="team-card">
+                <img src="Styles/Pictures/doctor.jpeg" alt="Dr. Awoleke">
+                <div class="doctor-speech">
+                    <h3>Dr. Awoleke</h3>
+                    <p>Chief Medical Officer</p>
+                    <p>"At Dominion Hospital, we put our patients first. My mission is to ensure that every individual who walks through our doors receives the highest quality of care and leaves with a smile of satisfaction. Our team is dedicated to advancing healthcare through continuous innovation and compassionate care."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dominion Hospital. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navContainer = document.getElementById('navContainer');
+            const menuOverlay = document.getElementById('menuOverlay');
+            
+            function toggleMenu() {
+                menuToggle.classList.toggle('active');
+                navContainer.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            }
+            
+            menuToggle.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+            
+            // Close menu when clicking on links
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (navContainer.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+            
+            // Responsive behavior for window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navContainer.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    navContainer.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
